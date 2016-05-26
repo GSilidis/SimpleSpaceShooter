@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=counter
+comment1.params=
+comment1.target=counter()
+comment2.params=
+comment2.target=int\ getPoints()
+comment3.params=
+comment3.target=void\ inc()
+comment4.params=
+comment4.target=void\ toZero()
+numComments=5

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=lifeBar
+comment1.params=
+comment1.target=lifeBar()
+comment2.params=health
+comment2.target=void\ setBar(int)
+comment3.params=
+comment3.target=void\ over()
+numComments=4
