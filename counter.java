@@ -6,7 +6,7 @@ public class counter extends Actor
     private int points;
     public counter()
     {
-        setImage(new GreenfootImage("0", 20, Color.WHITE, Color.BLACK));
+        setImage(new GreenfootImage("0", 20, Color.WHITE, null));
     } 
     public int getPoints()
     {
@@ -15,11 +15,11 @@ public class counter extends Actor
     public void inc()
     {
         points++;
-        setImage(new GreenfootImage("" + points, 20, Color.WHITE, Color.BLACK));
+        setImage(new GreenfootImage("" + points, 20, Color.WHITE, null));
     }
     public void toZero()
     {
         points=0;
-        setImage(new GreenfootImage("" + points, 20, Color.WHITE, Color.BLACK));
+        setImage(new GreenfootImage("" + points, 20, Color.WHITE, null));
     }
 }

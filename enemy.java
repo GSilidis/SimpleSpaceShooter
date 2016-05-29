@@ -44,15 +44,17 @@ public class enemy extends Actor
         if (moveTimer <= 0) // Change direction
         {
             isUp = !isUp;
-            moveTimer = 30+Greenfoot.getRandomNumber(15);
+            moveTimer = 50+Greenfoot.getRandomNumber(25);
         }
         if (isUp && getY()<=3) // If reaches border
         {
             isUp = false;
+            moveTimer = 50+Greenfoot.getRandomNumber(25);
         }
         if (!isUp && getY()>=getWorld().getHeight()-3)
         {
             isUp = true;
+            moveTimer = 50+Greenfoot.getRandomNumber(25);
         }
         if (isTouching(spaceShip.class) == true) // If touches player
         {
