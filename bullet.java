@@ -1,6 +1,7 @@
 import java.util.*;
 import greenfoot.*;
 import java.awt.Color;
+
 public class bullet extends Actor
 {
     private boolean isPlayers;  // For checking if this bullet shot by player or not
@@ -22,12 +23,8 @@ public class bullet extends Actor
             enmy = getOneObjectAtOffset(0, 0, enemy.class);
             if (enmy!=null)
             {
-                counter count;
-                MyWorld world;
-                world = (MyWorld)getWorld();
-                count = world.getCounter();
-                count.inc();
-                getWorld().removeObject(enmy);
+                enemy Enemy = (enemy)enmy;
+                Enemy.hit();
                 getWorld().removeObject(this);          
             }
             Actor bull;
@@ -41,11 +38,9 @@ public class bullet extends Actor
             }
             if (bull!=null)
             {
-                counter count;
                 MyWorld world;
                 world = (MyWorld)getWorld();
-                count = world.getCounter();
-                count.inc();
+                world.incCounter();
                 getWorld().removeObject(bull);
                 getWorld().removeObject(this);          
             }
@@ -56,10 +51,9 @@ public class bullet extends Actor
             {
                 MyWorld world;
                 world = (MyWorld)getWorld();
-                world.damaged();
+                world.damaged(true);
                 world.removeObject(this);
             }
         }
     }
 }
-

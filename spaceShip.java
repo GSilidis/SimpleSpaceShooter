@@ -7,7 +7,7 @@ public class spaceShip extends Actor
 
     private int timer = 0;
     private int count = 0; // Points
-    private int health = 100;
+    private byte health = 100;
     public void act()
     {
         if (timer > 0)
@@ -35,6 +35,16 @@ public class spaceShip extends Actor
             shoot();
             timer = 10;
         }
+        /*if (Greenfoot.isKeyDown("t")) // For debuging purposes only - adds more score
+        {
+            MyWorld world;
+            world = (MyWorld)getWorld();
+            world.addPoints(1);
+        }
+        if (Greenfoot.isKeyDown("p")) // For debuging purposes only - restores health
+        {
+            health = 100;
+        }*/
     }
     public void shoot()
     {
@@ -44,10 +54,14 @@ public class spaceShip extends Actor
             getWorld().addObject(bul, getX(), getY());
         }
     }
-    public int decHealth()
+    public byte decHealth(byte dec)
     {
-        health-=5;
+        health-=dec;
         return health;
+    }
+    public void restoreHealth()
+    {
+        health = 100;
     }
     public void incCount()
     {

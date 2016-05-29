@@ -4,9 +4,9 @@ import java.awt.Color;
 
 public class enemy extends Actor
 {
-    private int shootTimer = 0;
-    private int moveTimer = 0;
-    private boolean isUp; // If enemy goes up
+    protected short shootTimer = 0;// Timer for shooting
+    protected int moveTimer = 0;   // Timer for movement in single direction
+    protected boolean isUp;        // If enemy goes up
     public enemy()
     {
         if (Greenfoot.getRandomNumber(2) == 1) // For random movement
@@ -60,7 +60,7 @@ public class enemy extends Actor
         {
             MyWorld world;
             world = (MyWorld)getWorld();
-            world.damaged(); // Damages player
+            world.damaged(false); // Damages player
             world.removeObject(this); // And deletes itself
         }
     }
@@ -69,5 +69,12 @@ public class enemy extends Actor
             bullet bul = new bullet(false);
             bul.setRotation(180);
             getWorld().addObject(bul, getX()-15, getY());
+    }
+    public void hit()
+    {
+        MyWorld world;
+        world = (MyWorld)getWorld();
+        world.incCounter();
+        getWorld().removeObject(this);
     }
 }
