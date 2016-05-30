@@ -21,6 +21,7 @@ public class lifeBar extends Actor
     public void win()
     {
         setImage(new GreenfootImage("Congratulations! You've completed the game.", 20, Color.WHITE, null));
-        setLocation(getImage().getWidth(), getY());
+        setLocation(getImage().getWidth()-50, getY());
+        return;
     }
 }

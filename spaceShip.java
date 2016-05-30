@@ -5,9 +5,10 @@ import java.awt.Color;
 public class spaceShip extends Actor
 {
 
-    private int timer = 0;
-    private int count = 0; // Points
+    private short timer = 0;
+    private int score = 0; // Points
     private byte health = 100;
+    private short reloadTime = 10;
     public void act()
     {
         if (timer > 0)
@@ -33,7 +34,7 @@ public class spaceShip extends Actor
         if (Greenfoot.isKeyDown("space"))
         {
             shoot();
-            timer = 10;
+            timer = reloadTime;
         }
         /*if (Greenfoot.isKeyDown("t")) // For debuging purposes only - adds more score
         {
@@ -59,12 +60,16 @@ public class spaceShip extends Actor
         health-=dec;
         return health;
     }
+    public void setReloadTime(short time)
+    {
+        reloadTime=time;
+    }
     public void restoreHealth()
     {
         health = 100;
     }
-    public void incCount()
+    public void incscore()
     {
-        count++;
+        score++;
     }
 }

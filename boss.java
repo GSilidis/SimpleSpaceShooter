@@ -87,7 +87,7 @@ public class boss extends enemy
         {
             MyWorld world;
             world = (MyWorld)getWorld();
-            world.bossDead();
+            world.bossDead(shootTime);
             world.removeObject(this);
         }
     }

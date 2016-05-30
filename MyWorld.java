@@ -93,25 +93,48 @@ public class MyWorld extends World
         boss Boss = new boss(level);
         addObject(Boss,this.getWidth()+50,Greenfoot.getRandomNumber(this.getHeight()));
     }
-    public void bossDead() // Called when boss is dead
+    public void bossDead(short shootTime) // Called when boss is dead
     {
         if (player.decHealth((byte)0)>0)
         {
-            if (count.getPoints() < 350)
+            switch (shootTime)
             {
-                isSpawning = true;
-                life.setBar(100);
+                case 80:
+                    player.setReloadTime((short)8);
+                    setBackground(new GreenfootImage("images/space1.jpg"));
+                    isSpawning = true;
+                    player.restoreHealth();
+                    life.setBar(100);
+                    break;
+                case 60:
+                    player.setReloadTime((short)7);
+                    setBackground(new GreenfootImage("images/space2.jpg"));
+                    isSpawning = true;
+                    life.setBar(100);
+                    player.restoreHealth();
+                    break;
+                case 40:
+                    player.setReloadTime((short)5);
+                    setBackground(new GreenfootImage("images/space3.jpg"));
+                    isSpawning = true;
+                    life.setBar(100);
+                    player.restoreHealth();
+                    break;
+                case 20:
+                    player.setReloadTime((short)4);
+                    setBackground(new GreenfootImage("images/space4.jpg"));
+                    life.win();                     // I've got some problems with this text
+                    Greenfoot.delay(100);           // It's not always showing up
+                    Greenfoot.stop();               // It's somehow conficts with setBar method
+                    isSpawning = true;            
+                    player.restoreHealth();
+                    life.setBar(100);
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-                life.win();
-                Greenfoot.stop();
-                isSpawning = true;
-                life.setBar(100);
-            }
-            player.restoreHealth();
+
         }
-        //setBackground(new GreenfootImage("images/space1.jpg"));
     }
     public void damaged(boolean byBullet)
     {
